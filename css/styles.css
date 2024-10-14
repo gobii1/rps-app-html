@@ -1,0 +1,120 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    background: linear-gradient(to bottom, #A6B1E1, #23395B); /* Background gradient untuk body */
+    min-height: 100vh;
+}
+
+header {
+    background: linear-gradient(to right, #a6b1e1, #23395b); /* Latar belakang yang sama */
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between; /* Logo di kiri, menu di tengah */
+    align-items: center;
+    position: sticky;
+    top: 0; /* Header akan tetap di atas */
+    z-index: 1000;
+    padding-left: 50px;
+}
+
+nav {
+    display: flex;
+    justify-content: end; /* Menu navigasi berada di tengah */
+    padding-right: 30px;
+    align-items: center;
+    flex: 1; /* Menu akan memenuhi ruang yang tersisa */
+}
+
+.logo {
+    margin-right: auto; /* Membuat logo tetap di kiri */
+}
+
+.logo h1 {
+    font-size: 24px;
+}
+
+ul {
+    display: flex;
+    list-style: none;
+    margin: 0; /* Hilangkan margin agar lebih terpusat */
+    padding: 0; /* Hilangkan padding bawaan */
+}
+
+ul li {
+    margin-left: 40px; /* Sesuaikan dengan tampilan yang lebih baik */
+}
+
+ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero {
+    margin-top: -80px;
+    display: flex;
+    min-height: 100vh;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 50px 0 50px;
+    background: linear-gradient(to right, #A6B1E1, #23395B); /* Tambahkan gradient di hero section */
+     /* Menjaga hero section agar lebih proporsional */
+}
+
+.hero-content {
+    max-width: 50%;
+}
+
+.hero-content h2 {
+    font-size: 36px;
+    color: #23395B;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #23395B;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.btn-primary:hover {
+    background-color: #1B2A47;
+}
+
+/* Hero Image */
+.hero-image img {
+    max-width: 100%; /* Agar gambar menyesuaikan dengan lebar */
+    height: auto; /* Tetap menjaga rasio gambar */
+    border-radius: 50px;
+}
+
+/* Footer */
+footer {
+    background-color: #262627; /* Tambahkan warna footer yang konsisten */
+    color: white;
+    text-align: center;
+    padding: 15px 20px; /* Tambahkan padding untuk kenyamanan tampilan */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+}

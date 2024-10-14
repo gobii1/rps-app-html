@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login RPS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-blue-200 flex justify-center items-center min-h-screen">
+
+    <div class="bg-white shadow-md rounded-lg p-8 max-w-md w-full">
+        <h2 class="text-2xl font-semibold mb-6 text-center">Login Form</h2>
+        <form>
+            <div class="mb-4">
+                <label for="username" class="block text-gray-700">Masukkan Username/NIP</label>
+                <input type="text" id="username" name="username" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+            </div>
+
+            <div class="mb-4">
+                <label for="password" class="block text-gray-700">Masukkan Password</label>
+                <input type="password" id="password" name="password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+            </div>
+
+            <div class="flex justify-between items-center mb-6">
+                <label class="flex items-center">
+                    <input type="checkbox" class="form-checkbox">
+                    <span class="ml-2 text-gray-700">Ingat password</span>
+                </label>
+                <a href="#" class="text-blue-500 hover:underline">Lupa password?</a>
+            </div>
+
+            <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-200">Log in</button>
+        </form>
+
+        <p class="mt-4 text-center text-gray-600">Belum punya akun? <a href="register.html" class="text-blue-500 hover:underline">Register akun</a></p>
+    </div>
+
+</body>
+</html>
