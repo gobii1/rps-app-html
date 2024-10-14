@@ -1,0 +1,277 @@
+<html>
+<head>
+    <title>Rencana Pembelajaran Semester</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            background-color: #EAEAEA;
+            font-family: Arial, sans-serif;
+        }
+        .logo-polnep {
+            width: 75px;
+            height: auto;
+        }
+        .logo-user {
+            width: 30px;
+            height: auto;
+            margin-right: 20px;
+        }
+        #user {
+            margin-right: 5px;
+            margin-left: 20px;
+        }
+        #polnep {
+            font-family: "Fredoka", sans-serif;
+        }
+        .header {
+            background-image: url('./resource/image.png');
+            background-size: cover;
+            background-position: top;
+            color: white;
+            position: relative;
+            background-color: #17354e;
+            background-blend-mode: overlay;
+        }
+        .welcome-message {
+            font-family: "Lilita One", sans-serif;
+            text-align: center;
+            padding-bottom: 50px;
+        }
+        .welcome-message p {
+            margin: 0;
+            font-size: 30px;
+        }
+        .navbar {
+            background-color: transparent;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .navbar-collapse.show {
+            background-color: #17354e; /* Warna background saat toggler aktif */
+        }
+        .navbar .nav-link {
+            color: white !important;
+        }
+        .navbar .nav-link.active {
+            color: white !important;
+            font-weight: bold;
+        }
+        .navbar-toggler {
+            background-color: white;
+            border-color: white;
+        }
+        .search-bar {
+            margin: 20px 0;
+        }
+        .table-container {
+            margin: 20px 0;
+        }
+        .pagination {
+            justify-content: center;
+        }
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            margin-right: 15px;
+            text-decoration: none;
+        }
+        .navbar .user {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <nav class="navbar navbar-expand-md">
+            <div class="container-fluid">
+                <div class="d-flex align-items-center">
+                    <img class="logo-polnep me-3" src="resource/logo.png" alt="logo">
+                    <div id="polnep" class="fw-bold text-uppercase">
+                        <span class="d-block">POLITEKNIK</span>
+                        <span class="d-block">NEGERI</span>
+                        <span class="d-block">PONTIANAK</span>
+                    </div>
+                </div>
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarScroll">
+                    <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll fs-5" style="--bs-scroll-height: 100px;">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Beranda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Edit RPS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Library RPS</a>
+                        </li>
+                    </ul>
+                    <a class="nav-link fs-5" id="user" href="#">User</a>
+                    <img class="logo-user me-2" src="resource/user.png" alt="user">
+                </div>
+            </div>
+        </nav>
+        <div class="container text-center">
+            <div class="welcome-message">
+                <p>Selamat Datang di Web</p>
+                <p>Rencana Pembelajaran Semester</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="search-bar">
+            <input type="text" id="searchInput" class="form-control" placeholder="Search by Nama Mata Kuliah">
+        </div>        
+        <div class="table-container">
+            <table class="table table-bordered" id="rpsTable">
+                <thead>
+                    <tr>
+                        <th>NO</th>
+                        <th>Kode Matkul</th>
+                        <th>Nama Mata Kuliah</th>
+                        <th>File</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Kode Matkul</td>
+                        <td>Rekaya Perangkat Lunak</td>
+                        <td>File</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Kode Matkul</td>
+                        <td>Etika Profesi</td>
+                        <td>File</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Kode Matkul</td>
+                        <td>Pemrograman Web</td>
+                        <td>File</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Kode Matkul</td>
+                        <td>Jaringan Komputer Lanjut</td>
+                        <td>File</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Kode Matkul</td>
+                        <td>Kewirausahaan</td>
+                        <td>File</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Kode Matkul</td>
+                        <td>Matematika</td>
+                        <td>File</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Kode Matkul</td>
+                        <td>Pemrograman Mobile</td>
+                        <td>File</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Kode Matkul</td>
+                        <td>Bahasa Inggris</td>
+                        <td>File</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Kode Matkul</td>
+                        <td>Grafika Komputer</td>
+                        <td>File</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Kode Matkul</td>
+                        <td>Desain Web</td>
+                        <td>File</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <nav>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+              </nav>
+        </nav>
+    </div>
+    <script>
+        // Fungsi pencarian
+        document.getElementById('searchInput').addEventListener('keyup', function() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById('searchInput');
+            filter = input.value.toLowerCase(); // Mengubah input ke huruf kecil untuk pencarian yang tidak sensitif terhadap huruf besar
+            table = document.getElementById('rpsTable');
+            tr = table.getElementsByTagName('tr');
+    
+            // Loop melalui semua baris tabel, dan sembunyikan yang tidak cocok dengan query pencarian
+            for (i = 1; i < tr.length; i++) { // Mulai dari index 1 untuk melewati header
+                td = tr[i].getElementsByTagName('td')[2]; // Kolom ketiga (index 2) adalah nama mata kuliah
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                        tr[i].style.display = ""; // Tampilkan baris jika cocok
+                    } else {
+                        tr[i].style.display = "none"; // Sembunyikan baris jika tidak cocok
+                    }
+                }       
+            }
+        });
+    </script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mengambil data dari localStorage
+            const rpsData = JSON.parse(localStorage.getItem('rpsData'));
+            
+            // Menampilkan data pada halaman
+            document.querySelector('td:contains("Nama Mata Kuliah")').nextElementSibling.textContent = rpsData.namaMataKuliah;
+            document.querySelector('td:contains("Kode")').nextElementSibling.textContent = rpsData.kodeMataKuliah;
+            document.querySelector('td:contains("Semester")').nextElementSibling.textContent = rpsData.semester;
+            document.querySelector('td:contains("SKS")').nextElementSibling.textContent = rpsData.sks;
+            document.querySelector('td:contains("Tim Dosen")').nextElementSibling.textContent = rpsData.dosen;
+            document.querySelector('td:contains("Deskripsi Mata Kuliah")').nextElementSibling.textContent = rpsData.deskripsiMataKuliah;
+            document.querySelector('td:contains("Capaian Pembelajaran Prodi")').nextElementSibling.textContent = rpsData.capaianPembelajaranProdi;
+            document.querySelector('td:contains("Capaian Pembelajaran Mata Kuliah")').nextElementSibling.textContent = rpsData.capaianPembelajaranMatkul;
+            document.querySelector('td:contains("Bobot Penilaian")').nextElementSibling.textContent = rpsData.bobotPenilaian;
+            document.querySelector('td:contains("Metode Penilaian")').nextElementSibling.textContent = rpsData.metodePenilaian;
+            document.querySelector('td:contains("Buku Referensi")').nextElementSibling.textContent = rpsData.bukuReferensi;
+        });
+        
+        document.getElementById('accBtn').addEventListener('click', function() {
+            // Menyimpan status ACC ke localStorage
+            localStorage.setItem('rpsStatus', 'ACC');
+            
+            // Redirect ke halaman library_rps.html
+            window.location.href = 'library_rps.html';
+        });
+        
+        document.getElementById('tolakBtn').addEventListener('click', function() {
+            // Menghapus data RPS dari localStorage
+            localStorage.removeItem('rpsData');
+            
+            // Redirect kembali ke halaman input_rps.html
+            window.location.href = 'input_rps.html';
+        });
+    </script>
+
+</body>
+</html>

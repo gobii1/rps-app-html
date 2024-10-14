@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Input RPS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Lilita+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mirza:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f0f0f0;
+        }
+        .logo-polnep {
+            width: 75px;
+            height: auto;
+        }
+        .logo-user {
+            width: 30px;
+            height: auto;
+            margin-right: 20px;
+        }
+        #user {
+            margin-right: 5px;
+            margin-left: 20px;
+        }
+        #polnep {
+            font-family: "Fredoka", sans-serif;
+        }
+        .header {
+            background-image: url('./resource/image.png');
+            background-size: cover;
+            background-position: top;
+            color: white;
+            position: relative;
+            background-color: #17354e;
+            background-blend-mode: overlay;
+        }
+        .welcome-message {
+            font-family: "Lilita One", sans-serif;
+            text-align: center;
+            padding-bottom: 50px;
+        }
+        .welcome-message p {
+            margin: 0;
+            font-size: 30px;
+        }
+        .navbar {
+            background-color: transparent;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .navbar-collapse.show {
+            background-color: #17354e; /* Warna background saat toggler aktif */
+        }
+        .navbar .nav-link {
+            color: white !important;
+        }
+        .navbar .nav-link.active {
+            color: white !important;
+            font-weight: bold;
+        }
+        .form-section {
+            background-color: white;
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        .form-section label {
+            font-weight: bold;
+        }
+        .form-section .btn {
+            width: 100px;
+        }
+        .navbar-toggler {
+            background-color: white;
+            border-color: white;
+        }
+        .form-section button:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+        #input {
+            font-family: "Mirza", serif;
+            font-size: 28px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <nav class="navbar navbar-expand-md">
+            <div class="container-fluid">
+                <div class="d-flex align-items-center">
+                    <img class="logo-polnep me-3" src="resource/logo.png" alt="logo">
+                    <div id="polnep" class="fw-bold text-uppercase">
+                        <span class="d-block">POLITEKNIK</span>
+                        <span class="d-block">NEGERI</span>
+                        <span class="d-block">PONTIANAK</span>
+                    </div>
+                </div>
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarScroll">
+                    <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll fs-5" style="--bs-scroll-height: 100px;">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Beranda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Edit RPS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="library_rps.html">Library RPS</a>
+                        </li>
+                    </ul>
+                    <a class="nav-link fs-5" id="user" href="#">User</a>
+                    <img class="logo-user me-2" src="resource/user.png" alt="user">
+                </div>
+            </div>
+        </nav>
+        <div class="container text-center">
+            <div class="welcome-message">
+                <p>Selamat Datang di Web</p>
+                <p>Rencana Pembelajaran Semester</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="form-section">
+            <h2 class="text-center fs-2 fw-bold">Form Input RPS</h2><br>
+            <form id="input">
+                <h3 style="color: #286090;" class="fs-1 ">Informasi Mata Kuliah</h3>
+                <div class="mb-3">
+                    <label for="namaMataKuliah" class="form-label">Nama Mata Kuliah</label>
+                    <select class="form-select" id="namaMataKuliah" required>
+                        <option selected>Pilih...</option>
+                        <option value="Pancasila">Pancasila</option>
+                        <option value="Matematika 1">Matematika 1</option>
+                        <option value="Pengantar Teknologi Informasi">Pengantar Teknologi Informasi</option>
+                        <option value="Pemrograman Terstruktur">Pemrograman Terstruktur</option>
+                        <option value="Paket Program Terapan">Paket Program Terapan</option>
+                        <option value="Algoritma Pemrograman">Algoritma Pemrograman</option>
+                        <option value="Praktikum Pemrograman Terstruktur">Praktikum Pemrograman Terstruktur</option>
+                        <option value="Praktikum Paket Program Terapan">Praktikum Paket Program Terapan</option>
+                    </select>
+                    
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="kodeMataKuliah" class="form-label">Kode Mata Kuliah</label>
+                        <input type="text" class="form-control" id="kodeMataKuliah" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="semester" class="form-label">Semester</label>
+                        <select class="form-select" id="semester" required>
+                            <option selected>Pilih...</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="dosen" class="form-label">Dosen</label>
+                        <input type="text" class="form-control" id="dosen" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="sks" class="form-label">SKS</label>
+                        <select class="form-select" id="sks" required>
+                            <option selected>Pilih...</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="deskripsiMataKuliah" class="form-label">Deskripsi Mata Kuliah</label>
+                    <textarea class="form-control" id="deskripsiMataKuliah" rows="3" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="capaianPembelajaranProdi" class="form-label">Capaian Pembelajaran Prodi</label>
+                    <textarea class="form-control" id="capaianPembelajaranProdi" rows="3" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="capaianPembelajaranMatkul" class="form-label">Capaian Pembelajaran Mata Kuliah</label>
+                    <textarea class="form-control" id="capaianPembelajaranMatkul" rows="3" required></textarea>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="bobotPenilaian" class="form-label">Bobot Penilaian</label>
+                        <textarea class="form-control" id="bobotPenilaian" rows="3" required></textarea>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="metodePenilaian" class="form-label">Metode Penilaian</label>
+                        <textarea class="form-control" id="metodePenilaian" rows="3" required></textarea>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="bukuReferensi" class="form-label">Buku Referensi</label>
+                    <textarea class="form-control" id="bukuReferensi" rows="3" required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-dark" id="simpanInformasiBtn">Simpan Informasi</button>
+            </form>
+        </div>
+
+        <div class="form-section">
+            <form id="input">
+                <h3 style="color: #286090;" class="fs-1 ">Jadwal Pelaksanaan</h3>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="mingguKe" class="form-label">Minggu ke-</label>
+                        <input type="text" class="form-control" id="mingguKe">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="waktu" class="form-label">Waktu (Menit)</label>
+                        <input type="text" class="form-control" id="waktu">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="cpTahapanMataKuliah" class="form-label">CP tahapan Mata Kuliah</label>
+                    <textarea class="form-control" id="cpTahapanMataKuliah" rows="3"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="bahanKajian" class="form-label">Bahan Kajian</label>
+                    <textarea class="form-control" id="bahanKajian" rows="3"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="subBahanKajian" class="form-label">Sub Bahan Kajian</label>
+                    <textarea class="form-control" id="subBahanKajian" rows="3"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="bentukPembelajaran" class="form-label">Bentuk Pembelajaran</label>
+                    <textarea class="form-control" id="bentukPembelajaran" rows="3"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="kriteriaPenilaian" class="form-label">Kriteria Penilaian</label>
+                    <textarea class="form-control" id="kriteriaPenilaian" rows="3"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="pengalamanBelajar" class="form-label">Pengalaman Belajar</label>
+                    <textarea class="form-control" id="pengalamanBelajar" rows="3"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="bobotMateri" class="form-label">Bobot Materi (%)</label>
+                    <input type="text" class="form-control" id="bobotMateri">
+                </div>
+                <div class="mb-3">
+                    <label for="referensi" class="form-label">Referensi</label>
+                    <select class="form-select" id="referensiJadwal">
+                        <option selected>Pilih referensi...</option>
+                    </select>
+                </div>
+                <button type="button" id="addJadwalBtn" class="btn btn-dark">Tambah </button>                
+                <button type="submit" class="btn btn-dark">Simpan</button>
+
+            </form>
+        </div>
+    </div>
+
+    <script> 
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Mengambil data dari form
+            const rpsData = {
+                namaMataKuliah: document.getElementById('namaMataKuliah').value,
+                kodeMataKuliah: document.getElementById('kodeMataKuliah').value,
+                semester: document.getElementById('semester').value,
+                dosen: document.getElementById('dosen').value,
+                sks: document.getElementById('sks').value,
+                deskripsiMataKuliah: document.getElementById('deskripsiMataKuliah').value,
+                capaianPembelajaranProdi: document.getElementById('capaianPembelajaranProdi').value,
+                capaianPembelajaranMatkul: document.getElementById('capaianPembelajaranMatkul').value,
+                bobotPenilaian: document.getElementById('bobotPenilaian').value,
+                metodePenilaian: document.getElementById('metodePenilaian').value,
+                bukuReferensi: document.getElementById('bukuReferensi').value
+            };
+            
+            // Menyimpan data ke localStorage
+            localStorage.setItem('rpsData', JSON.stringify(rpsData));
+            
+            // Redirect ke halaman hasil_rps.html
+            window.location.href = 'hasil_rps.html';
+        });
+    </script>
+
+    <script>
+        // Menyimpan referensi ke array
+        let referensiBukuArray = [];
+
+        // Event listener untuk tombol "Simpan Informasi"
+        document.getElementById('simpanInformasiBtn').addEventListener('click', function(event) {
+            event.preventDefault(); // Mencegah form disubmit
+
+            // Mengambil data dari textarea buku referensi
+            let bukuReferensiInput = document.getElementById('bukuReferensi').value.trim();
+
+            // Memisahkan data buku berdasarkan baris
+            referensiBukuArray = bukuReferensiInput.split('\n').map((item, index) => {
+                return (index + 1) + '. ' + item.trim();
+            });
+
+            // Mengisi select referensi di bagian jadwal pelaksanaan
+            let referensiSelect = document.getElementById('referensiJadwal');
+            referensiSelect.innerHTML = '<option selected>Pilih referensi...</option>'; // Reset opsi
+
+            referensiBukuArray.forEach((referensi, index) => {
+                let option = document.createElement('option');
+                option.value = index + 1; // Menggunakan angka referensi
+                option.textContent = referensi;
+                referensiSelect.appendChild(option);
+            });
+
+            alert("Informasi mata kuliah berhasil disimpan!");
+        });
+    </script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
