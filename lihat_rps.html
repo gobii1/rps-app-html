@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasil RPS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Lilita+One&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #f0f0f0; }
+        .container { background-color: white; padding: 30px; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.1); margin-top: 30px; margin-bottom: 30px; }
+        .table-header { background-color: #17354e; color: white; padding: 15px; border-radius: 5px 5px 0 0; margin-bottom: 20px; }
+        .header-title { font-family: "Fredoka", sans-serif; font-weight: bold; }
+        .logo-polnep { width: 100px; height: auto; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="table-header text-center mb-4">
+            <h2 class="header-title mb-3">RENCANA PEMBELAJARAN SEMESTER (RPS)</h2>
+            <div class="row align-items-center">
+                <div class="col-md-9">
+                    <p class="mb-0">No. /ELT-RPS/POLNEP /09/2015</p>
+                    <p class="mb-0">JURUSAN: TEKNIK ELEKTRO</p>
+                    <p class="mb-0">PROGRAM STUDI: TEKNIK INFORMATIKA</p>
+                    <p class="mb-0">POLITEKNIK NEGERI PONTIANAK</p>
+                </div>
+                <div class="col-md-3">
+                    <img src="images/logo.png" alt="Logo POLNEP" class="logo-polnep">
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <div class="section-title"><h3 class="fs-4 mb-0">Informasi Mata Kuliah</h3></div>
+            <table class="table table-bordered">
+                <tbody>
+                    <tr><th>Nama Mata Kuliah</th><td id="namaMataKuliah"></td></tr>
+                    <tr><th>Kode Mata Kuliah</th><td id="kodeMataKuliah"></td></tr>
+                    <tr><th>Semester</th><td id="semester"></td></tr>
+                    <tr><th>SKS</th><td id="sks"></td></tr>
+                    <tr><th>Dosen</th><td id="dosen"></td></tr>
+                    <tr><th>Deskripsi Mata Kuliah</th><td id="deskripsiMataKuliah"></td></tr>
+                    <tr><th>Capaian Pembelajaran Prodi</th><td id="capaianPembelajaranProdi"></td></tr>
+                    <tr><th>Capaian Pembelajaran Mata Kuliah</th><td id="capaianPembelajaranMatkul"></td></tr>
+                    <tr><th>Bobot Penilaian</th><td id="bobotPenilaian"></td></tr>
+                    <tr><th>Metode Penilaian</th><td id="metodePenilaian"></td></tr>
+                    <tr><th>Buku Referensi</th><td id="bukuReferensi"></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <div class="section-title"><h3 class="fs-4 mb-0">Jadwal Pelaksanaan</h3></div>
+            <div class="table-responsive">
+                <table class="table table-bordered" id="jadwalTable">
+                    <thead>
+                        <tr>
+                            <th>Minggu Ke-</th><th>Waktu (Menit)</th><th>CP Tahapan Mata Kuliah</th><th>Bahan Kajian</th>
+                            <th>Sub Bahan Kajian</th><th>Bentuk Pembelajaran</th><th>Pengalaman Belajar</th>
+                            <th>Kriteria Penilaian</th><th>Bobot Materi (%)</th><th>Referensi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="jadwalTableBody">
+                        <!-- Data jadwal akan diisi oleh JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="text-end mt-4">
+            <a href="input_rps.html" class="btn btn-secondary">Kembali</a>
+            <button id="tolakBtn" class="btn btn-danger">Tolak</button>
+            <button id="accBtn" class="btn btn-success">Setujui</button>
+        </div>
+    </div>
+
+    <script src="javascript/hasil_rps.js"></script>
+    <!-- <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            try {
+                // Ganti URL API dengan endpoint yang sesuai
+                const response = await fetch('https://apiteam.v-project.my.id/api/rps/infomatkul');
+                if (!response.ok) throw new Error('Gagal mengambil data RPS');
+
+                const data = await response.json();
+                const rpsData = data.data;
+                const jadwalData = data.jadwal;
+
+                // Mengisi informasi mata kuliah
+                document.getElementById('namaMataKuliah').textContent = rpsData.namaMataKuliah;
+                document.getElementById('kodeMataKuliah').textContent = rpsData.kodeMataKuliah;
+                document.getElementById('semester').textContent = rpsData.semester;
+                document.getElementById('sks').textContent = rpsData.sks;
+                document.getElementById('dosen').textContent = rpsData.dosen;
+                document.getElementById('deskripsiMataKuliah').textContent = rpsData.deskripsiMataKuliah;
+                document.getElementById('capaianPembelajaranProdi').textContent = rpsData.capaianPembelajaranProdi;
+                document.getElementById('capaianPembelajaranMatkul').textContent = rpsData.capaianPembelajaranMatkul;
+                document.getElementById('bobotPenilaian').innerHTML = rpsData.bobotPenilaian.replace(/\n/g, '<br>');
+                document.getElementById('metodePenilaian').textContent = rpsData.metodePenilaian;
+                document.getElementById('bukuReferensi').innerHTML = rpsData.bukuReferensi.replace(/\n/g, '<br>');
+
+                // Mengisi tabel jadwal
+                const jadwalTableBody = document.getElementById('jadwalTableBody');
+                jadwalTableBody.innerHTML = jadwalData.map(jadwal => `
+                    <tr>
+                        <td class="text-center">${jadwal.mingguKe}</td>
+                        <td class="text-center">${jadwal.waktu}</td>
+                        <td>${jadwal.cpTahapanMataKuliah}</td>
+                        <td>${jadwal.bahanKajian}</td>
+                        <td>${jadwal.subBahanKajian}</td>
+                        <td>${jadwal.bentukPembelajaran}</td>
+                        <td>${jadwal.pengalamanBelajar}</td>
+                        <td>${jadwal.kriteriaPenilaian}</td>
+                        <td class="text-center">${jadwal.bobotMateri}</td>
+                        <td class="text-center">${jadwal.referensi}</td>
+                    </tr>
+                `).join('');
+            } catch (error) {
+                console.error('Terjadi kesalahan:', error);
+                alert('Gagal mengambil data RPS.');
+            }
+        });
+    </script> -->
+
+</body>
+</html>

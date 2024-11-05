@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPS Dosen</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Daftar RPS Dosen</h1>
+        <div id="rpsList"></div>
+    </div>
+    <script>
+        // Fetch RPS data and display it here
+        async function loadRPS() {
+            try {
+                const response = await fetch('https://your-api-url/api/rps_dosen');
+                const data = await response.json();
+                const rpsList = document.getElementById('rpsList');
+                data.forEach(rps => {
+                    const rpsItem = document.createElement('div');
+                    rpsItem.innerHTML = `<h3>${rps.title}</h3><p>${rps.description}</p>`;
+                    rpsList.appendChild(rpsItem);
+                });
+            } catch (error) {
+                console.error('Error loading RPS:', error);
+            }
+        }
+        loadRPS();
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasil Sementara RPS</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Hasil Sementara RPS</h1>
+        <div id="hasilSementaraList"></div>
+    </div>
+    <script>
+        // Fetch and display temporary RPS status
+        async function loadHasilSementara() {
+            try {
+                const response = await fetch('https://your-api-url/api/hasil_sementara');
+                const data = await response.json();
+                const hasilSementaraList = document.getElementById('hasilSementaraList');
+                data.forEach(hasil => {
+                    const hasilItem = document.createElement('div');
+                    hasilItem.innerHTML = `<h3>${hasil.title}</h3><p>Status: ${hasil.status}</p>`;
+                    hasilSementaraList.appendChild(hasilItem);
+                });
+            } catch (error) {
+                console.error('Error loading temporary results:', error);
+            }
+        }
+        loadHasilSementara();
+    </script>
+</body>
+</html>

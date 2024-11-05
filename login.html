@@ -1,40 +1,156 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login RPS</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-<body class="bg-blue-200 flex justify-center items-center min-h-screen">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background: linear-gradient(135deg, #17354e, #5a9bcf);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            color: #fff;
+        }
 
-    <div class="bg-white shadow-md rounded-lg p-8 max-w-md w-full">
-        <h2 class="text-2xl font-semibold mb-6 text-center">Login Form</h2>
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.9); /* Transparent white */
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .login-container h2 {
+            font-size: 2rem;
+            color: #17354e;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .form-label {
+            font-weight: bold;
+            color: #17354e;
+            text-align: left;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-control {
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+            padding: 10px;
+        }
+
+        .btn-login {
+            background-color: #17354e;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s;
+        }
+
+        .btn-login:hover {
+            background-color: #12506b;
+        }
+
+        .checkbox-label {
+            color: #17354e;
+        }
+
+        /* Background icon */
+        .background-icon {
+            position: absolute;
+            font-size: 200px;
+            color: rgba(255, 255, 255, 0.1);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Icon -->
+    <i class="fas fa-user-lock background-icon"></i>
+
+    <div class="login-container">
+        <h2>Login RPS</h2>
         <form>
             <div class="mb-4">
-                <label for="username" class="block text-gray-700">Masukkan Username/NIP</label>
-                <input type="text" id="username" name="username" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Masukkan Username Anda/NIP" required>
+                <label for="id" class="form-label">Masukkan NIP/NIM/ID_Admin</label>
+                <input type="text" id="id" name="id" class="form-control" placeholder="Masukkan Username Anda/NIP" required>
             </div>
 
             <div class="mb-4">
-                <label for="password" class="block text-gray-700">Masukkan Password</label>
-                <input type="password" id="password" name="password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Masukkan Password Anda" required>
+                <label for="password" class="form-label">Masukkan Password</label>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Masukkan Password Anda" required>
             </div>
 
-            <div class="flex justify-between items-center mb-6">
-                <label class="flex items-center">
-                    <input type="checkbox" class="form-checkbox">
-                    <span class="ml-2 text-gray-700">Ingat password</span>
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <label class="checkbox-label">
+                    <input type="checkbox" class="me-2"> Ingat password
                 </label>
-                <a href="forgot-password.html" class="text-blue-500 hover:underline">Lupa password?</a>
             </div>
 
-            <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-200">Log in</button>
+            <button type="submit" id="submit" class="btn-login">Log in</button>
         </form>
-
-        <p class="mt-4 text-center text-gray-600">Belum punya akun? <a href="register.html" class="text-blue-500 hover:underline">Register akun</a></p>
     </div>
 
+    <!-- Script JS -->
+    <!-- <script src="/javascript/script.js"></script> -->
+    <script>
+        document.getElementById("submit").addEventListener('click', function(e) {
+            e.preventDefault();
+            var id = document.getElementById('id').value;
+            var password = document.getElementById('password').value;
+            login(id, password);
+        });
+    
+        async function login(id, password) {
+            try {
+                const response = await fetch('https://apiteam.v-project.my.id/api/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ id, password }),
+                });
+        
+                const data = await response.json();
+                if (response.ok) {
+                    console.log('Login successful:', data);
+                    localStorage.setItem('nama', data.data.nama);
+                    localStorage.setItem('token', data.data.token);
+                    
+                    // Cek apakah ID yang dimasukkan adalah NIP yang spesifik
+                    if (id === '197503142006041984') {
+                        window.location.href = 'dashboard_kaprodi.html'; // Arahkan ke dashboard_kaprodi.html
+                    } else {
+                        window.location.href = 'dashboard_dosen.html'; // Arahkan ke dashboard_dosen.html
+                    }
+                } else {
+                    console.error('Login failed:', data);
+                    alert(data.message || 'Login gagal, coba lagi');
+                }
+            } catch (error) {
+                console.error('Error during login:', error);
+            }
+        }
+    </script>
 </body>
 </html>

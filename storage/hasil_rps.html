@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasil RPS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Lilita+One&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .table-header {
+            background-color: #17354e;
+            color: white;
+            padding: 15px;
+            border-radius: 5px 5px 0 0;
+            margin-bottom: 20px;
+        }
+
+        .logo-polnep {
+            width: 100px;
+            height: auto;
+        }
+
+        .header-title {
+            font-family: "Fredoka", sans-serif;
+            font-weight: bold;
+        }
+
+        .btn-action {
+            margin: 5px;
+            min-width: 100px;
+        }
+
+        .info-section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            background-color: #17354e;
+            color: white;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header RPS -->
+        <div class="table-header text-center mb-4">
+            <h2 class="header-title mb-3">RENCANA PEMBELAJARAN SEMESTER (RPS)</h2>
+            <div class="row align-items-center">
+                <div class="col-md-9">
+                    <p class="mb-0">No. /ELT-RPS/POLNEP /09/2015</p>
+                    <p class="mb-0">JURUSAN: TEKNIK ELEKTRO</p>
+                    <p class="mb-0">PROGRAM STUDI: TEKNIK INFORMATIKA</p>
+                    <p class="mb-0">POLITEKNIK NEGERI PONTIANAK</p>
+                </div>
+                <div class="col-md-3">
+                    <img src="images/logo.png" alt="Logo POLNEP" class="logo-polnep">
+                </div>
+            </div>
+        </div>
+
+        <!-- Informasi Mata Kuliah -->
+        <div class="info-section">
+            <div class="section-title">
+                <h3 class="fs-4 mb-0">Informasi Mata Kuliah</h3>
+            </div>
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <th width="30%">Nama Mata Kuliah</th>
+                        <td id="namaMataKuliah"></td>
+                    </tr>
+                    <tr>
+                        <th>Kode Mata Kuliah</th>
+                        <td id="kodeMataKuliah"></td>
+                    </tr>
+                    <tr>
+                        <th>Semester</th>
+                        <td id="semester"></td>
+                    </tr>
+                    <tr>
+                        <th>SKS</th>
+                        <td id="sks"></td>
+                    </tr>
+                    <tr>
+                        <th>Dosen</th>
+                        <td id="dosen"></td>
+                    </tr>
+                    <tr>
+                        <th>Deskripsi Mata Kuliah</th>
+                        <td id="deskripsiMataKuliah"></td>
+                    </tr>
+                    <tr>
+                        <th>Capaian Pembelajaran Prodi</th>
+                        <td id="capaianPembelajaranProdi"></td>
+                    </tr>
+                    <tr>
+                        <th>Capaian Pembelajaran Mata Kuliah</th>
+                        <td id="capaianPembelajaranMatkul"></td>
+                    </tr>
+                    <tr>
+                        <th>Bobot Penilaian</th>
+                        <td id="bobotPenilaian"></td>
+                    </tr>
+                    <tr>
+                        <th>Metode Penilaian</th>
+                        <td id="metodePenilaian"></td>
+                    </tr>
+                    <tr>
+                        <th>Buku Referensi</th>
+                        <td id="bukuReferensi"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Jadwal Pelaksanaan -->
+        <div class="info-section">
+            <div class="section-title">
+                <h3 class="fs-4 mb-0">Jadwal Pelaksanaan</h3>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered" id="jadwalTable">
+                    <thead>
+                        <tr>
+                            <th>Minggu Ke-</th>
+                            <th>Waktu (Menit)</th>
+                            <th>CP Tahapan Mata Kuliah</th>
+                            <th>Bahan Kajian</th>
+                            <th>Sub Bahan Kajian</th>
+                            <th>Bentuk Pembelajaran</th>
+                            <th>Pengalaman Belajar</th>
+                            <th>Kriteria Penilaian</th>
+                            <th>Bobot Materi (%)</th>
+                            <th>Referensi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="jadwalTableBody">
+                        <!-- Data jadwal akan diisi oleh JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Tombol Aksi -->
+        <div class="text-end mt-4">
+            <a href="input_rps.html" class="btn btn-secondary btn-action">Kembali</a>
+            <button id="tolakBtn" class="btn btn-danger btn-action">Diperbarui</button>
+            <button id="accBtn" class="btn btn-success btn-action">Setujui</button>
+        </div>
+
+        <!-- Alasan Penolakan -->
+        <div class="info-section" id="alasanPenolakanContainer" style="display: none;">
+            <div class="section-title">
+                <h3 class="fs-4 mb-0">Masukkan Pesan</h3>
+            </div>
+            <div class="mb-3">
+                <textarea id="inputPesan" class="form-control" placeholder="Masukkan alasan diperbarui..."></textarea>
+                <button id="tambahPesanBtn" class="btn btn-primary mt-2">Tambahkan Pesan</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Fungsi untuk mengambil data RPS terbaru dari API
+            function loadLatestRPS() {
+                fetch('https://apiteam.v-project.my.id/api/rps')
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data && data.length > 0) {
+                            // Ambil RPS terakhir (asumsi: data terbaru ada di urutan terakhir)
+                            const latestRPS = data[data.length - 1];
+                            
+                            // Mengisi informasi mata kuliah
+                            document.getElementById('namaMataKuliah').textContent = latestRPS.namaMataKuliah;
+                            document.getElementById('kodeMataKuliah').textContent = latestRPS.kodeMataKuliah;
+                            document.getElementById('semester').textContent = latestRPS.semester;
+                            document.getElementById('sks').textContent = latestRPS.sks;
+                            document.getElementById('dosen').textContent = latestRPS.dosen;
+                            document.getElementById('deskripsiMataKuliah').textContent = latestRPS.deskripsiMataKuliah;
+                            document.getElementById('capaianPembelajaranProdi').textContent = latestRPS.capaianPembelajaranProdi;
+                            document.getElementById('capaianPembelajaranMatkul').textContent = latestRPS.capaianPembelajaranMatkul;
+                            document.getElementById('bobotPenilaian').textContent = latestRPS.bobotPenilaian;
+                            document.getElementById('metodePenilaian').textContent = latestRPS.metodePenilaian;
+                            document.getElementById('bukuReferensi').textContent = latestRPS.bukuReferensi;
+
+                            // Menyimpan data RPS ke dalam localStorage (jika diperlukan untuk halaman lain)
+                            localStorage.setItem('rpsInformasi', JSON.stringify(latestRPS));
+                            localStorage.setItem('rpsJadwal', JSON.stringify(latestRPS.jadwal)); // Misal jadwal adalah bagian dari latestRPS
+                            
+                            // Mengisi jadwal
+                            updateJadwal(latestRPS.jadwal);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Terjadi kesalahan saat mengambil data RPS:', error);
+                    });
+            }
+
+            // Fungsi untuk memperbarui tabel jadwal
+            function updateJadwal(jadwal) {
+                const jadwalTableBody = document.getElementById('jadwalTableBody');
+                jadwalTableBody.innerHTML = ''; // Kosongkan tabel sebelum mengisi
+
+                jadwal.forEach((item, index) => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${item.mingguKe}</td>
+                        <td>${item.waktu}</td>
+                        <td>${item.cpTahapan}</td>
+                        <td>${item.bahanKajian}</td>
+                        <td>${item.subBahanKajian}</td>
+                        <td>${item.bentukPembelajaran}</td>
+                        <td>${item.pengalamanBelajar}</td>
+                        <td>${item.kriteriaPenilaian}</td>
+                        <td>${item.bobotMateri}</td>
+                        <td>${item.referensi}</td>
+                    `;
+                    jadwalTableBody.appendChild(row);
+                });
+            }
+
+            // Event listener untuk tombol Setujui
+            document.getElementById('accBtn').addEventListener('click', function () {
+                // Logika untuk menyetujui RPS (kirim ke API)
+                console.log("RPS disetujui");
+                // Tambahkan logika sesuai kebutuhan
+            });
+
+            // Event listener untuk tombol Diperbarui
+            document.getElementById('tolakBtn').addEventListener('click', function () {
+                const container = document.getElementById('alasanPenolakanContainer');
+                container.style.display = container.style.display === 'none' ? 'block' : 'none';
+            });
+
+            // Event listener untuk tombol Tambah Pesan
+            document.getElementById('tambahPesanBtn').addEventListener('click', function () {
+                const pesan = document.getElementById('inputPesan').value;
+                // Logika untuk menyimpan pesan alasan penolakan
+                console.log("Pesan ditambahkan:", pesan);
+                // Tambahkan logika sesuai kebutuhan
+            });
+
+            // Panggil fungsi untuk memuat RPS saat halaman dimuat
+            loadLatestRPS();
+        });
+    </script>
+    <script type="text/javascript
+</body>
+
+</html>

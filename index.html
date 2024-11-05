@@ -1,43 +1,154 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RPS Landing Page</title>
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-    <header>
-        <div class="logo">
-            <h1>RPS Polnep</h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#faq">FAQ</a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul>
-        </nav>
-    </header>
+    <title>RPS POLNEP - Landing Page</title>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h2>Tingkatkan Kualitas Akademik Bersama Web App RPS!</h2>
-            <p>
-                Selamat datang di platform Rencana Perkuliahan Semester (RPS) - solusi cerdas untuk dosen dan kaprodi dalam merancang perencanaan perkuliahan yang efektif.
-            </p>
-            <p>
-                Bersama kami, Anda dapat menyusun RPS yang terstruktur, memudahkan proses pengajaran, dan membantu mahasiswa mencapai hasil belajar terbaik.
-            </p>
-            <a href="login.html" class="btn-primary">Mulai Sekarang</a>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    
+    <!-- Animate.css -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background-color: #17354e;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            color: white;
+        }
+
+        .navbar-nav .nav-link {
+            color: white !important;
+        }
+
+        .hero-section {
+            background-image: url('images/hero-background.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0;
+            text-align: center;
+            color: rgb(0, 0, 0);
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: #17354e;
+            color: white;
+            padding: 20px 0;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #ffc107;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fa fa-paw"></i> RPS POLNEP</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <!-- <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li> -->
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.instagram.com/dzakjjal/profilecard/?igsh=MXRhcDR4dGxvaHlhdA==">Kontak</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div class="hero-image">
-            <img src="resource/teacher.png".png" alt="Teacher explaining on a board">
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="animate__animated animate__fadeInLeft">Selamat Datang di RPS POLNEP</h1>
+            <p class="animate__animated animate__fadeInRight">Pengelolaan Rencana Pembelajaran Semester dengan mudah dan efisien</p>
         </div>
     </section>
 
-    <footer>
-        <p>Copyright 2024 RPS Polnep</p>
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4 animate__animated animate__fadeInUp">Apa itu Rencana Pembelajaran Semester (RPS)?</h2>
+            <p class="lead text-center animate__animated animate__fadeInUp animate__delay-1s">
+                Rencana Pembelajaran Semester (RPS) adalah panduan komprehensif yang membantu mahasiswa dan dosen dalam memahami tujuan, materi, metode, dan evaluasi pembelajaran dalam satu semester.
+                Di RPS POLNEP, kami menyediakan sistem yang memudahkan pengelolaan RPS, memastikan setiap elemen pembelajaran tersusun dengan baik dan transparan bagi semua pihak.
+            </p>
+            <div class="text-center mt-5">
+                <a href="login.html" class="btn btn-warning btn-lg animate__animated animate__bounceIn">Masuk Sekarang</a>
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-4 text-center animate__animated animate__fadeInLeft animate__delay-2s">
+                    <i class="fa fa-check-circle fa-3x mb-3 text-success"></i>
+                    <h4>Mudah Digunakan</h4>
+                    <p>Antarmuka yang intuitif, memudahkan mahasiswa dan dosen dalam mengakses RPS dengan cepat dan mudah.</p>
+                </div>
+                <div class="col-md-4 text-center animate__animated animate__fadeInUp animate__delay-2s">
+                    <i class="fa fa-cogs fa-3x mb-3 text-primary"></i>
+                    <h4>Terintegrasi</h4>
+                    <p>Terhubung dengan sistem akademik, sehingga setiap perubahan RPS dapat diakses secara real-time.</p>
+                </div>
+                <div class="col-md-4 text-center animate__animated animate__fadeInRight animate__delay-2s">
+                    <i class="fa fa-book fa-3x mb-3 text-warning"></i>
+                    <h4>Komprehensif</h4>
+                    <p>RPS yang lengkap mencakup tujuan pembelajaran, capaian kompetensi, bahan ajar, dan evaluasi.</p>
+                </div>
+            </div>
+            <!-- Tombol Masuk -->
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <p class="mb-0">© 2024 RPS POLNEP - All Rights Reserved</p>
+            <p>
+                Dibuat dengan <i class="fas fa-heart" style="color: #e25555;"></i> oleh Tim POLNEP
+                | <a href="https://www.instagram.com/dzakjjal/profilecard/?igsh=MXRhcDR4dGxvaHlhdA==">Kontak Kami</a>
+            </p>
+        </div>
     </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
